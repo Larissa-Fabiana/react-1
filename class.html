@@ -12,23 +12,59 @@
   <div id="app"></div>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    const headerText = "Banana";
+    const headerText = "Banana2";
     const paragraphText = "La la la la la la";
         
-    function HeaderComponent(props) {
-      return <h1>{props.text}</h1>;
+    class HeaderComponent extends React.Component{
+      constructor(props){
+        super(props);
+      }
+      render(){
+        return <h1>{this.props.text}</h1>;
+      }
     }
-    function ParagraphComponent(props) {
-      return <p>{props.text}</p>
+
+    // function HeaderComponent(props) {
+    //   return <h1>{props.text}</h1>;
+    // }
+
+    class ParagraphComponent extends React.Component{
+      constructor(props){
+        super(props);
+      }
+      render(){
+        return <p>{this.props.text}</p>
+      }
     }
-    function Wrapper(props) {
-      return (
-        <div>
-          <HeaderComponent text={headerText}/>
-          <ParagraphComponent text={paragraphText} />
-        </div>  
-      );
+
+    // function ParagraphComponent(props) {
+    //   return <p>{props.text}</p>
+    // }
+
+    class Wrapper extends React.Component{
+      // const headerText = "Banana";
+    // const paragraphText = "La la la la la la";
+      constructor(props){
+        super(props);
+      }
+      render(){
+        return (
+          <div>
+            <HeaderComponent text={/*this.*/headerText}/>
+            <ParagraphComponent text={/*this.*/paragraphText} />
+          </div>  
+        );
+      }
     }
+
+    // function Wrapper(props) {
+    //   return (
+    //     <div>
+    //       <HeaderComponent text={headerText}/>
+    //       <ParagraphComponent text={paragraphText} />
+    //     </div>  
+    //   );
+    // }
     ReactDOM.render(
       <Wrapper />,
       document.getElementById("app")

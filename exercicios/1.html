@@ -10,33 +10,48 @@
 </head>
 <body>
   <div id="app"></div>
-  <script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  <script type="text/babel">
     const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta pharetra gravida. Morbi luctus ultricies purus eget condimentum. Vivamus sit amet est sapien. Nulla facilisi.";
 
-    function header1(props) {
-      return React.createElement("h1", null, props.text);
+    function Header1(props) {
+      // return React.createElement("h1", null, props.text);
+      return <h1>{props.text}</h1>;
     }
 
-    function header2(props) {
-      return React.createElement("h2", null, props.text);
+    function Header2(props) {
+      // return React.createElement("h2", null, props.text);
+      return <h2>{props.text}</h2>;
     }
 
-    function header3(props) {
-      return React.createElement("h3", null, props.text);
+    function Header3(props) {
+      // return React.createElement("h3", null, props.text);
+      return <h3>{props.text}</h3>;
     }
 
-    const wrapper = React.createElement(
-      "div", 
-      null, 
-      React.createElement(header1, {text}),
-      React.createElement(header2, {text}),
-      React.createElement(header3, {text}),
-    );
+    function Wrapper(){
+      return(
+        <div>
+          <Header1 text={text}/>
+          <Header2 text={text}/>
+          <Header3 text={text}/>
+        </div>);
+    } 
+    // const wrapper = 
+    // React.createElement(
+    //   "div", 
+    //   null, 
+      // React.createElement(header1, {text}),
+      // React.createElement(header2, {text}),
+      // React.createElement(header3, {text}),
+    // );
 
     ReactDOM.render(
-      wrapper,
+      <Wrapper/>,
       document.getElementById("app")
     )
   </script>
 </body>
 </html>
+
+<!-- passar para jsx -->

@@ -11,13 +11,15 @@
 <body>
   <div id="app"></div>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
   <script type="text/babel">
+
     function Badge(props) {
       return (
         <div>
-          <img src={""} />
-          <h1>Name: </h1>
-          <h3>username: </h3>
+          <img src={props.img}/>
+          <h1>Name: {props.name}</h1>
+          <h3>username: {props.username}</h3>
         </div>
       )
     }
@@ -33,3 +35,5 @@
   </script>
 </body>
 </html>
+
+<!-- mexer com props -->

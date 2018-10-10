@@ -1,1 +1,67 @@
-// Criar uma lista de objetos com altura e a idade da pessoa. E quando clicar abrir um alert com o nome.
+ <!-- Criar uma lista de objetos com altura e a idade da pessoa. E quando clicar abrir um alert com o nome. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+
+  function OnTheScreen(props) {
+    const myclick = () => {props.click(props.name)}
+    return (
+      <li onClick={myclick}>
+        <h5>Altura: {props.stature}</h5>
+        <p> Idade: {props.yearsOld}</p>
+      </li>
+    );
+  }
+
+  class Users extends React.Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        users:[
+          {name:'Larissa', height: '1,70', age: '20'},
+          {name:'lari', height: '1,55', age: '32'},
+          {name:'oie', height: '1,67', age: '24'},
+          {name:'nome', height: '1,59', age: '19'},
+          {name:'nome2', height: '1,85', age: '28'},
+        ]
+      }
+    }
+    handleClick(name){
+      alert(name);
+    }
+
+    render(){
+      return(
+        <ul>
+          {this.state.users.map((user, index) => {
+              return <OnTheScreen key={index}
+                          name={user.name}
+                          stature={user.height}
+                          yearsOld={user.age}
+                          click={this.handleClick}
+                          />
+            }
+          )}
+        </ul>
+      )
+    }
+  }
+
+  ReactDOM.render(
+    <Users/>, 
+    document.getElementById('app')
+  )
+</script>
+</html>
